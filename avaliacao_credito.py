@@ -507,9 +507,38 @@ df_oot["mau"] = df_oot["mau"].astype("int")
 df_trabalho["Mês"] = df_trabalho["data_ref"].dt.month
 
 # Cria coluna com o nome do mês em português
-df_trabalho["Nome_mes"] = df_trabalho["data_ref"].dt.month_name(locale="pt_BR")
+meses_pt = {
+    "January": "Janeiro",
+    "February": "Fevereiro",
+    "March": "Março",
+    "April": "Abril",
+    "May": "Maio",
+    "June": "Junho",
+    "July": "Julho",
+    "August": "Agosto",
+    "September": "Setembro",
+    "October": "Outubro",
+    "November": "Novembro",
+    "December": "Dezembro",
+}
+
+df_trabalho["Nome_mes"] = df_trabalho["data_ref"].dt.month_name()
+df_trabalho["Nome_mes"] = df_trabalho["Nome_mes"].map(meses_pt)
+
 # Cria coluna com o nome do dia da semana em português
-df_trabalho["Dia_semana"] = df_trabalho["data_ref"].dt.day_name(locale="pt_BR")
+dias_pt = {
+    "Monday": "Segunda-feira",
+    "Tuesday": "Terça-feira",
+    "Wednesday": "Quarta-feira",
+    "Thursday": "Quinta-feira",
+    "Friday": "Sexta-feira",
+    "Saturday": "Sábado",
+    "Sunday": "Domingo",
+}
+
+df_trabalho["Dia_semana"] = df_trabalho["data_ref"].dt.day_name()
+df_trabalho["Dia_semana"] = df_trabalho["Dia_semana"].map(dias_pt)
+
 
 # Cria coluna com o número do dia do mês
 df_trabalho["Dia do mês"] = df_trabalho["data_ref"].dt.day
