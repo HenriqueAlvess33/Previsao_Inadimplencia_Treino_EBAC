@@ -8,6 +8,7 @@ ipython==8.26.0
 statsmodels==0.14.4
 scipy==1.15.1
 patsy==1.0.1
+scikit-learn==1.5.0
 
 
 
